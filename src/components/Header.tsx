@@ -9,9 +9,9 @@ const Header = () => {
 				<h5>Toronto, ON</h5>
 			</div>
 			<Link href='/'>
-				<h1>
+				<h2>
 					<a>Kenneth & Rebecca</a>
-				</h1>
+				</h2>
 			</Link>
 			<nav>
 				<ul>
