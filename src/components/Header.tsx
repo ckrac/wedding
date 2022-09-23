@@ -26,16 +26,6 @@ const Header = () => {
 						</Link>
 					</li>
 					<li>
-						<Link href='/travel'>
-							<a>TRAVEL</a>
-						</Link>
-					</li>
-					<li>
-						<Link href='/registry'>
-							<a>REGISTRY</a>
-						</Link>
-					</li>
-					<li>
 						<Link href='/wedding-party'>
 							<a>WEDDING PARTY</a>
 						</Link>

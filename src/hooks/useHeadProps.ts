@@ -13,10 +13,6 @@ const RoutePathHeadPropsMap = {
 		title: 'Photos',
 		metaName: 'Photos',
 	},
-	'/registry': {
-		title: 'Registry',
-		metaName: 'Registry',
-	},
 	'/schedule': {
 		title: 'Schedule',
 		metaName: 'Schedule',
@@ -24,10 +20,6 @@ const RoutePathHeadPropsMap = {
 	'/things-to-do': {
 		title: 'Things To Do',
 		metaName: 'Things Todo',
-	},
-	'/travel': {
-		title: 'Travel',
-		metaName: 'Travel',
 	},
 	'/wedding-party': {
 		title: 'Wedding Party',
