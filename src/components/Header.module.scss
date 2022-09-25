@@ -1,0 +1,38 @@
+.header {
+	padding: 20px;
+	display: flex;
+	flex-direction: column;
+	gap: 10px;
+
+	&__wedding-info {
+		display: flex;
+		gap: 25px;
+		font-weight: 600;
+		font-size: 16px;
+		letter-spacing: 1.2px;
+		line-height: 17.6px;
+	}
+
+	&__title {
+		text-align: center;
+		font-size: 42px;
+		line-height: 46px;
+	}
+
+	&__nav {
+		display: flex;
+		flex-direction: row;
+		justify-content: center;
+		gap: 20px;
+		font-size: 14px;
+		line-height: 20px;
+		letter-spacing: 3px;
+	}
+
+	&__nav-item {
+		&:hover,
+		&--active {
+			text-decoration: underline;
+		}
+	}
+}
