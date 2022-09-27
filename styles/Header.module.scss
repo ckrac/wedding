@@ -142,7 +142,10 @@
 		}
 	}
 
-	@include sm {
+	/*
+		Tablet query
+	*/
+	@include md {
 		height: $header-tablet-height;
 
 		&__menu-btn {
@@ -150,6 +153,9 @@
 		}
 	}
 
+	/*
+		Desktop query
+	*/
 	@include lg {
 		height: $header-desktop-height;
 		padding-left: 20px;

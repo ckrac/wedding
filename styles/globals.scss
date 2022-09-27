@@ -22,7 +22,7 @@ a {
 main {
 	padding-top: $header-mobile-height;
 
-	@include sm {
+	@include md {
 		padding-top: $header-tablet-height;
 	}
 

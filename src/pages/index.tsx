@@ -31,16 +31,18 @@ const Home: NextPage = () => {
 				<h1>We're getting married!</h1>
 			</div>
 
-			<div className={styles['home__name-section']}>
-				<h2 className={styles['home__name-full']}>
-					<span>Rebecca</span>
-					<span>Lee</span>
-				</h2>
-				<span className={styles['home__name-connection']}>and</span>
-				<h2 className={styles['home__name-full']}>
-					<span>Kenneth</span>
-					<span>Racadio</span>
-				</h2>
+			<div className={styles['home__name-outer']}>
+				<div className={styles['home__name-middle']}>
+					<h2 className={styles['home__name-full']}>
+						<span>Rebecca</span>
+						<span>Lee</span>
+					</h2>
+					<span className={styles['home__name-connection']}>and</span>
+					<h2 className={styles['home__name-full']}>
+						<span>Kenneth</span>
+						<span>Racadio</span>
+					</h2>
+				</div>
 			</div>
 
 			<section className={styles['home__wedding-info']}>
@@ -53,11 +55,13 @@ const Home: NextPage = () => {
 				<h4 className={styles['home__location']}>TORONTO, ON</h4>
 			</section>
 
-			<div className={styles['home__about-container']}>
+			<div className={styles['home__about-us-container']}>
 				{AboutUs.map(({ description, subtitle, title }) => (
 					<section key={title} className={styles['home__about-us']}>
-						<h5 className={styles['home__about-us__title']}>{title}</h5>
-						<h6 className={styles['home__about-us__subtitle']}>{subtitle}</h6>
+						<div className={styles['home__about-us__header']}>
+							<h5 className={styles['home__about-us__title']}>{title}</h5>
+							<h6 className={styles['home__about-us__subtitle']}>{subtitle}</h6>
+						</div>
 						<p className={styles['home__about-us__description']}>
 							{description}
 						</p>

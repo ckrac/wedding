@@ -23,9 +23,14 @@
 		line-height: 33px;
 	}
 
-	&__name-section {
-		width: 100vw;
+	&__name-outer {
 		display: flex;
+		align-items: center;
+		justify-content: center;
+	}
+
+	&__name-middle {
+		display: inline-flex;
 		flex-direction: column;
 		align-items: center;
 		justify-content: center;
@@ -90,7 +95,7 @@
 		line-height: 19px;
 	}
 
-	&__about-container {
+	&__about-us-container {
 		padding: 20px;
 	}
 
@@ -103,6 +108,13 @@
 
 		&:not(:last-child) {
 			border-bottom: 1px solid #000;
+		}
+
+		&__header {
+			display: flex;
+			flex-direction: column;
+			gap: 20px;
+			align-items: center;
 		}
 
 		&__title {
@@ -122,6 +134,135 @@
 			font-size: 17px;
 			letter-spacing: 1px;
 			line-height: 24px;
+		}
+	}
+
+	/*
+		Tablet query
+	*/
+	@include md {
+		gap: 60px;
+
+		&__header {
+			height: 700px;
+			font-size: 72px;
+			line-height: 86px;
+		}
+
+		&__name-outer {
+			gap: 10px;
+
+			&::before,
+			&::after {
+				content: ' ';
+				display: inline-block;
+				background-position-x: 100%;
+				background-position-y: 50%;
+				background-repeat: no-repeat;
+				background-size: contain;
+				height: 400px;
+				width: 141px;
+				vertical-align: middle;
+			}
+
+			&::before {
+				background-image: url('/name-accent-left@2x.png');
+			}
+
+			&::after {
+				background-image: url('/name-accent-right@2x.png');
+			}
+		}
+
+		&__name-middle {
+			font-size: 56px;
+			line-height: 67px;
+		}
+
+		&__name-full {
+			flex-direction: column;
+			align-items: center;
+			gap: 0;
+		}
+
+		&__name-connection {
+			font-size: 14px;
+			line-height: 20px;
+		}
+
+		&__date {
+			font-size: 56px;
+			line-height: 67px;
+		}
+
+		&__location {
+			font-size: 14px;
+			line-height: 16px;
+		}
+
+		&__about-us-container {
+			display: flex;
+			flex-direction: column;
+		}
+
+		&__about-us {
+			position: relative;
+			display: flex;
+			flex-direction: row;
+			align-items: center;
+			justify-content: center;
+			padding: 80px 80px;
+			height: 100%;
+			gap: 40px;
+
+			&:not(:last-child) {
+				border-bottom: unset;
+			}
+
+			&__header {
+				height: 100%;
+
+				&::after {
+					content: ' ';
+					display: block;
+					background-image: url('/story-accent@2x.png');
+					background-position-x: 50%;
+					background-position-y: 50%;
+					background-repeat: no-repeat;
+					background-size: contain;
+					height: 74px;
+					width: 150px;
+				}
+			}
+
+			&__subtitle {
+				font-size: 14px;
+				line-height: 16px;
+			}
+
+			&__description {
+				position: relative;
+				text-align: center;
+				font-size: 21px;
+				line-height: 28px;
+
+				&::before {
+					position: absolute;
+					left: -26px;
+					top: -25px;
+					content: ' ';
+					display: block;
+					height: 120%;
+					width: 1px;
+					background-color: #000;
+				}
+			}
+
+			&__header,
+			&__description {
+				flex: 1;
+				max-width: 320px;
+			}
 		}
 	}
 }
