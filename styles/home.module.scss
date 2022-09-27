@@ -1,0 +1,127 @@
+@import './variables.scss';
+@import './breakpoints.scss';
+
+.home {
+	display: flex;
+	flex-direction: column;
+	gap: 40px;
+
+	&__header {
+		background-image: url('/home-page-header.jpeg');
+		background-position: center;
+		background-position-x: 50%;
+		background-position-y: 50%;
+		background-size: cover;
+		height: 206px;
+		width: 100vw;
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		color: #fff;
+		font-size: 28px;
+		font-weight: 400;
+		line-height: 33px;
+	}
+
+	&__name-section {
+		width: 100vw;
+		display: flex;
+		flex-direction: column;
+		align-items: center;
+		justify-content: center;
+		gap: 20px;
+		font-size: 42px;
+		line-height: 50px;
+		text-transform: uppercase;
+	}
+
+	&__name-full {
+		display: flex;
+		gap: 12px;
+	}
+
+	&__name-connection {
+		font-family: 'Questrial', serif;
+		font-size: 16px;
+		line-height: 22px;
+		letter-spacing: 5px;
+		text-transform: uppercase;
+	}
+
+	&__wedding-info {
+		display: flex;
+		flex-direction: column;
+		align-items: center;
+		justify-content: center;
+		gap: 20px;
+
+		&::before,
+		&::after {
+			content: ' ';
+			display: block;
+			background-position-x: 50%;
+			background-position-y: 50%;
+			background-repeat: no-repeat;
+			background-size: contain;
+			height: 65px;
+			width: 100vw;
+		}
+
+		&::before {
+			background-image: url('/date-accent-left@2x.png');
+		}
+
+		&::after {
+			background-image: url('/date-accent-right@2x.png');
+		}
+	}
+
+	&__date {
+		display: flex;
+		gap: 10px;
+		font-size: 30px;
+		line-height: 36px;
+	}
+
+	&__location {
+		font-family: 'Questrial', serif;
+		font-size: 16px;
+		letter-spacing: 4px;
+		line-height: 19px;
+	}
+
+	&__about-container {
+		padding: 20px;
+	}
+
+	&__about-us {
+		display: flex;
+		flex-direction: column;
+		align-items: center;
+		gap: 20px;
+		padding: 40px 20px;
+
+		&:not(:last-child) {
+			border-bottom: 1px solid #000;
+		}
+
+		&__title {
+			font-size: 38px;
+			line-height: 45px;
+			text-transform: uppercase;
+		}
+
+		&__subtitle {
+			font-family: 'Questrial', serif;
+			font-size: 16px;
+			letter-spacing: 3px;
+			line-height: 19px;
+		}
+
+		&__description {
+			font-size: 17px;
+			letter-spacing: 1px;
+			line-height: 24px;
+		}
+	}
+}
