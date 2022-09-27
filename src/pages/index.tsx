@@ -46,13 +46,15 @@ const Home: NextPage = () => {
 			</div>
 
 			<section className={styles['home__wedding-info']}>
-				<h3 className={styles['home__date']}>
-					<span>August</span>
-					<span>05, </span>
-					<span>2023</span>
-				</h3>
+				<div className={styles['home__wedding-info-inner']}>
+					<h3 className={styles['home__date']}>
+						<span>August</span>
+						<span>05, </span>
+						<span>2023</span>
+					</h3>
 
-				<h4 className={styles['home__location']}>TORONTO, ON</h4>
+					<h4 className={styles['home__location']}>TORONTO, ON</h4>
+				</div>
 			</section>
 
 			<div className={styles['home__about-us-container']}>

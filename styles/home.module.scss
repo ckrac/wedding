@@ -42,6 +42,8 @@
 
 	&__name-full {
 		display: flex;
+		justify-content: center;
+		flex-wrap: wrap;
 		gap: 12px;
 	}
 
@@ -79,6 +81,13 @@
 		&::after {
 			background-image: url('/date-accent-right@2x.png');
 		}
+	}
+
+	&__wedding-info-inner {
+		display: flex;
+		flex-direction: column;
+		align-items: center;
+		gap: 20px;
 	}
 
 	&__date {
@@ -262,6 +271,49 @@
 			&__description {
 				flex: 1;
 				max-width: 320px;
+			}
+		}
+	}
+
+	/*
+		Desktop query
+	*/
+	@include lg {
+		gap: 70px;
+
+		&__name-full {
+			flex-direction: row;
+			align-items: center;
+			gap: 20px;
+		}
+
+		&__name-outer {
+			&::before,
+			&::after {
+				height: 450px;
+				width: 178px;
+			}
+		}
+
+		&__wedding-info {
+			flex-direction: row;
+			padding-top: 30px;
+
+			&::before,
+			&::after {
+				height: 91px;
+				width: 180px;
+			}
+		}
+
+		&__wedding-info-inner {
+			gap: 30px;
+		}
+
+		&__about-us {
+			&__header,
+			&__description {
+				max-width: 370px;
 			}
 		}
 	}
