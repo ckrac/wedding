@@ -25,7 +25,7 @@ const Header = () => {
 					[styles['header__menu-btn--hidden']]: showMobileNavMenu,
 				})}
 			>
-				=
+				<span />
 			</button>
 
 			<div className={styles['header__wedding-info']}>
@@ -44,9 +44,7 @@ const Header = () => {
 				className={cn(styles['header__menu-close-btn'], {
 					[styles['header__menu-close-btn--hidden']]: !showMobileNavMenu,
 				})}
-			>
-				X
-			</button>
+			/>
 
 			<nav>
 				<ul
