@@ -1,38 +1,136 @@
+@import '../../styles/variables.scss';
+@import '../../styles/breakpoints.scss';
+
 .header {
-	padding: 20px;
+	z-index: 100;
+	position: fixed;
 	display: flex;
 	flex-direction: column;
-	gap: 10px;
+	justify-content: center;
+	align-items: center;
+	background-color: #fff;
+	width: 100vw;
+	height: $header-mobile-height;
+
+	&__menu-btn {
+		cursor: 'pointer';
+		position: absolute;
+		top: 0;
+		left: 0;
+		align-self: center;
+		height: $header-mobile-height;
+		width: $header-mobile-height;
+
+		&--hidden {
+			display: none;
+		}
+	}
+
+	&__menu-close-btn {
+		cursor: 'pointer';
+		z-index: 10000;
+		position: absolute;
+		top: 0;
+		left: 0;
+		height: $header-mobile-height;
+		width: $header-mobile-height;
+
+		&--hidden {
+			display: none;
+		}
+	}
 
 	&__wedding-info {
-		display: flex;
-		gap: 25px;
-		font-weight: 600;
-		font-size: 16px;
-		letter-spacing: 1.2px;
-		line-height: 17.6px;
+		display: none;
 	}
 
 	&__title {
 		text-align: center;
-		font-size: 42px;
-		line-height: 46px;
+		font-size: 26px;
+		line-height: 31px;
+		letter-spacing: normal;
 	}
 
 	&__nav {
+		position: absolute;
+		top: 0;
+		left: 0;
+		height: 100vh;
+		width: 100vw;
 		display: flex;
-		flex-direction: row;
-		justify-content: center;
+		flex-direction: column;
+		align-items: center;
 		gap: 20px;
-		font-size: 14px;
-		line-height: 20px;
+		padding-top: 60px;
+		background-color: #fff;
+		opacity: 0.9;
+		font-size: 28px;
+		line-height: 40px;
 		letter-spacing: 3px;
+
+		&--hidden {
+			display: none;
+		}
 	}
 
 	&__nav-item {
 		&:hover,
 		&--active {
 			text-decoration: underline;
+		}
+	}
+
+	@include sm {
+		height: $header-tablet-height;
+
+		&__menu-btn {
+			top: 15px;
+		}
+	}
+
+	@include lg {
+		height: $header-desktop-height;
+		padding-left: 20px;
+		display: flex;
+		flex-direction: column;
+		justify-content: center;
+		align-items: unset;
+		gap: 10px;
+
+		&__menu-btn,
+		&__menu-close-btn {
+			display: none;
+		}
+
+		&__title {
+			font-size: 42px;
+			line-height: 46px;
+		}
+
+		&__nav {
+			position: static;
+			top: unset;
+			left: unset;
+			height: auto;
+			width: auto;
+			display: flex;
+			flex-direction: row;
+			justify-content: center;
+			padding-top: 0;
+			gap: 20px;
+			font-size: 14px;
+			line-height: 20px;
+			letter-spacing: 3px;
+			align-self: center;
+		}
+
+		&__wedding-info {
+			display: flex;
+			gap: 25px;
+			font-weight: 600;
+			font-size: 16px;
+			letter-spacing: 1.2px;
+			line-height: 17.6px;
 		}
 	}
 }

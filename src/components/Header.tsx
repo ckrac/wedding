@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useState } from 'react'
 import Link from 'next/link'
 import { useRouter } from 'next/router'
 import styles from './Header.module.scss'
@@ -15,9 +15,19 @@ const Links = [
 
 const Header = () => {
 	const { asPath } = useRouter()
+	const [showMobileNavMenu, setShowMobileNavMenu] = useState(false)
 
 	return (
 		<header className={styles.header}>
+			<button
+				onClick={() => setShowMobileNavMenu(!showMobileNavMenu)}
+				className={cn(styles['header__menu-btn'], {
+					[styles['header__menu-btn--hidden']]: showMobileNavMenu,
+				})}
+			>
+				=
+			</button>
+
 			<div className={styles['header__wedding-info']}>
 				<h5>August 5, 2023</h5>
 				<h5>Toronto, ON</h5>
@@ -28,14 +38,29 @@ const Header = () => {
 					<a>Kenneth & Rebecca</a>
 				</h2>
 			</Link>
+
+			<button
+				onClick={() => setShowMobileNavMenu(false)}
+				className={cn(styles['header__menu-close-btn'], {
+					[styles['header__menu-close-btn--hidden']]: !showMobileNavMenu,
+				})}
+			>
+				X
+			</button>
+
 			<nav>
-				<ul className={styles.header__nav}>
+				<ul
+					className={cn(styles.header__nav, {
+						[styles['header__nav--hidden']]: !showMobileNavMenu,
+					})}
+				>
 					{Links.map(({ path, text }) => (
 						<li
 							key={path}
 							className={cn(styles['header__nav-item'], {
 								[styles['header__nav-item--active']]: asPath === path,
 							})}
+							onClick={() => setShowMobileNavMenu(false)}
 						>
 							<Link href={path}>
 								<a>{text}</a>
