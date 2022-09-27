@@ -1,5 +1,5 @@
 import type { NextPage } from 'next'
-import styles from '@styles/home.module.scss'
+import styles from '@styles/pages/home.module.scss'
 
 const AboutUs = [
 	{
