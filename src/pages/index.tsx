@@ -27,9 +27,9 @@ const AboutUs = [
 const Home: NextPage = () => {
 	return (
 		<div className={styles.home}>
-			<h1 className={styles['home__header']}>
+			<div className={styles['home__header']}>
 				<h1>We're getting married!</h1>
-			</h1>
+			</div>
 
 			<div className={styles['home__name-section']}>
 				<h2 className={styles['home__name-full']}>
