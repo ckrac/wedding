@@ -1,0 +1,30 @@
+@import '../variables.scss';
+@import '../breakpoints.scss';
+
+@include md {
+	.responsive-card-list :global {
+		gap: 0;
+		max-width: 940px;
+
+		.card {
+			width: 100%;
+			display: grid;
+			grid-template-columns: repeat(2, 1fr);
+			gap: 0;
+			padding: 0;
+		}
+
+		.card-header {
+			width: 100%;
+			justify-self: center;
+			padding: 20px;
+		}
+
+		.card-content {
+			border-left: 1px solid #000;
+			width: 100%;
+			justify-self: center;
+			padding: 60px 20px;
+		}
+	}
+}
