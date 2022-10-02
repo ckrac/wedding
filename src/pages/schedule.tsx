@@ -47,6 +47,13 @@ const Schedules = [
 ]
 
 const Schedule: NextPage = () => {
+	function onMapClick() {
+		window?.open(
+			'https://www.google.com/maps/place/75+E+Liberty+St,+Toronto,+ON+M6K+3R3/@43.6380814,-79.4169816,17z/data=!3m1!4b1!4m5!3m4!1s0x882b35035a5d382f:0x886bed28e8ebb928!8m2!3d43.6380814!4d-79.4147929',
+			'_blank'
+		)
+	}
+
 	return (
 		<div className='page-container'>
 			<div className='page-header'>
@@ -76,7 +83,9 @@ const Schedule: NextPage = () => {
 								))}
 							</address>
 							<p className='card-description'>{description}</p>
-							<button className='primary-button'>MAP</button>
+							<button className='primary-button' onClick={onMapClick}>
+								MAP
+							</button>
 						</div>
 					</li>
 				))}
