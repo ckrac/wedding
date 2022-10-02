@@ -9,7 +9,6 @@ const Links = [
 	{ path: '/schedule', text: 'SCHEDULE' },
 	{ path: '/wedding-party', text: 'WEDDING PARTY' },
 	{ path: '/photos', text: 'PHOTOS' },
-	{ path: '/things-to-do', text: 'THINGS TO DO' },
 	{ path: '/faqs', text: 'FAQS' },
 ]
 

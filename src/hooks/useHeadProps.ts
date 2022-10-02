@@ -17,10 +17,6 @@ const RoutePathHeadPropsMap = {
 		title: 'Schedule',
 		metaName: 'Schedule',
 	},
-	'/things-to-do': {
-		title: 'Things To Do',
-		metaName: 'Things Todo',
-	},
 	'/wedding-party': {
 		title: 'Wedding Party',
 		metaName: 'Wedding Party',
