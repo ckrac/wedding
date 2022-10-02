@@ -3,7 +3,7 @@
 	flex-direction: column;
 	align-items: center;
 	padding: 40px 20px;
-	gap: 70px;
+	gap: 50px;
 }
 
 .page-header {
@@ -31,18 +31,28 @@
 	line-height: 52px;
 	text-align: center;
 
+	@include md {
+		font-size: 56px;
+		line-height: 61px;
+	}
+
 	@include lg {
 		display: none;
 	}
 }
 
 .page-description {
-	max-width: 650px;
+	max-width: 680px;
 	padding: 20px 20px 0 20px;
 	text-align: center;
 	font-size: 17px;
 	letter-spacing: 1px;
 	line-height: 24px;
+
+	@include md {
+		font-size: 21px;
+		line-height: 28px;
+	}
 }
 
 .primary-button {
@@ -100,4 +110,10 @@
 	text-align: center;
 	font-size: 17px;
 	line-height: 24px;
+	letter-spacing: 1px;
+
+	@include md {
+		font-size: 21px;
+		line-height: 28px;
+	}
 }

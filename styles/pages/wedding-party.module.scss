@@ -1,0 +1,48 @@
+@import '../variables.scss';
+@import '../breakpoints.scss';
+
+$md-card-height: 550px;
+
+.img {
+	height: 150px;
+	width: 150px;
+	border-radius: 50%;
+	object-fit: cover;
+}
+
+.responsive-card-list :global {
+	gap: 40px;
+	width: 100%;
+
+	.card {
+		width: 100%;
+		padding-bottom: 50px;
+		border-bottom: 1px solid #000;
+	}
+
+	.card-description {
+		max-width: 415px;
+	}
+
+	@include md {
+		display: grid;
+		max-width: 900px;
+		grid-template-columns: 1fr 1px 1fr;
+		gap: 0;
+
+		.card {
+			height: $md-card-height;
+			max-width: 450px;
+			padding-top: 100px;
+			padding: 100px 20px 0 20px;
+			border-bottom: unset;
+		}
+
+		.separator {
+			background: #000;
+			height: $md-card-height;
+			height: 85%;
+			margin-top: 60px;
+		}
+	}
+}
