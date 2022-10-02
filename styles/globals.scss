@@ -22,6 +22,25 @@ a {
 
 main {
 	padding-top: $header-mobile-height;
+	padding-bottom: 50px;
+
+	&::after {
+		margin-top: 80px;
+		background-image: url('/footer@2x.png');
+		text-align: center;
+		content: 'R + K';
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		background-position-x: 50%;
+		background-position-y: 50%;
+		background-repeat: no-repeat;
+		background-size: contain;
+		height: 203px;
+		width: calc(100vw - 20px);
+		font-size: 38px;
+		line-height: 44px;
+	}
 
 	@include md {
 		padding-top: $header-tablet-height;
@@ -29,5 +48,9 @@ main {
 
 	@include lg {
 		padding-top: $header-desktop-height;
+
+		&::after {
+			height: 260px;
+		}
 	}
 }
