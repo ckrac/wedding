@@ -1,0 +1,51 @@
+@import '../variables.scss';
+@import '../breakpoints.scss';
+
+.responsive-card-list :global {
+	gap: 50px;
+
+	.card {
+		gap: 40px;
+		padding-bottom: 40px;
+		border-bottom: 1px solid #000;
+	}
+
+	.separator {
+		display: none;
+	}
+
+	@include md {
+		gap: 140px;
+		max-width: 940px;
+
+		.card {
+			width: 100%;
+			display: grid;
+			grid-template-columns: 1fr 1px 1fr;
+			gap: 0;
+			padding: 0;
+			border-bottom: unset;
+		}
+
+		.card-header {
+			padding: 20px;
+		}
+
+		.separator {
+			display: block;
+			background-color: #000;
+			min-height: 250px;
+			height: 120%;
+		}
+
+		.card-content {
+			padding: 20px;
+		}
+	}
+
+	@include lg {
+		.card-content {
+			padding: 30px;
+		}
+	}
+}
