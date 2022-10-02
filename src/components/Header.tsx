@@ -34,7 +34,7 @@ const Header = () => {
 
 			<Link href='/'>
 				<h2 className={styles.header__title}>
-					<a>Kenneth & Rebecca</a>
+					<a>Rebecca & Kenneth</a>
 				</h2>
 			</Link>
 
