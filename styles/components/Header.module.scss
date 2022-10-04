@@ -13,7 +13,7 @@
 	height: $header-mobile-height;
 
 	&__menu-btn {
-		cursor: 'pointer';
+		z-index: 10000;
 		background-color: #fff;
 		border-style: none;
 		position: absolute;
@@ -64,7 +64,6 @@
 	}
 
 	&__menu-close-btn {
-		cursor: 'pointer';
 		z-index: 10000;
 		position: absolute;
 		top: 0;
@@ -129,9 +128,11 @@
 		font-size: 28px;
 		line-height: 40px;
 		letter-spacing: 3px;
+		transition: height 400ms, opacity 200ms;
 
 		&--hidden {
-			display: none;
+			opacity: 0;
+			height: 0;
 		}
 	}
 
@@ -181,6 +182,7 @@
 			left: unset;
 			height: auto;
 			width: auto;
+			opacity: 1;
 			display: flex;
 			flex-direction: row;
 			justify-content: center;
