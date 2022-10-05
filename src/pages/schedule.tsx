@@ -59,9 +59,7 @@ const Schedule: NextPage = () => {
 			<div className='page-header'>
 				<h1 className='page-title'>Schedule</h1>
 				<p className='page-description'>
-					Here's what to expect during our wedding weekend. There will also be a
-					printout of this schedule available in your hotel rooms. We can't wait
-					to celebrate with you!
+					{`Here's what to expect during our wedding weekend. There will also be a printout of this schedule available in your hotel rooms. We can't wait to celebrate with you!`}
 				</p>
 			</div>
 

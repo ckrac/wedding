@@ -27,8 +27,7 @@ const Faqs: NextPage = () => {
 			<div className='page-header'>
 				<h1 className='page-title'>FAQs</h1>
 				<p className='page-description'>
-					If you have any other questions other than what we’ve listed here,
-					please reach out to our wedding planner, Annie, at 555-555-5555.
+					{`If you have any other questions other than what we’ve listed here, please reach out to our wedding planner, Annie, at 555-555-5555.`}
 				</p>
 			</div>
 

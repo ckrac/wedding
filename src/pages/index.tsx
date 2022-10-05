@@ -28,7 +28,7 @@ const Home: NextPage = () => {
 	return (
 		<div className={styles.home}>
 			<div className={styles['home__header']}>
-				<h1>We're getting married!</h1>
+				<h1>{`We're getting married!`}</h1>
 			</div>
 
 			<div className={styles['home__name-outer']}>
