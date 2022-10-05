@@ -1,6 +1,8 @@
 import { useRouter } from 'next/router'
 
-const RoutePathHeadPropsMap = {
+const RoutePathHeadPropsMap: {
+	[key: string]: { title: string; metaName: string }
+} = {
 	'/': {
 		title: 'Ken And Rebecca Wedding',
 		metaName: 'Home',
