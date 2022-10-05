@@ -12,6 +12,10 @@
 	width: 100vw;
 	height: $header-mobile-height;
 
+	&--bottom-border {
+		border-bottom: 1px solid #000;
+	}
+
 	&__menu-btn {
 		z-index: 10000;
 		background-color: #fff;
@@ -20,8 +24,8 @@
 		top: 0;
 		left: 0;
 		align-self: center;
-		height: $header-mobile-height;
-		width: $header-mobile-height;
+		height: calc(#{$header-mobile-height} - 1px);
+		width: calc(#{$header-mobile-height} - 1px);
 
 		&--hidden {
 			display: none;

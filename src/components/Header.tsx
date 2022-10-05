@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import Link from 'next/link'
 import { useRouter } from 'next/router'
 import styles from '@styles/components/Header.module.scss'
@@ -15,9 +15,24 @@ const Links = [
 const Header = () => {
 	const { asPath } = useRouter()
 	const [showMobileNavMenu, setShowMobileNavMenu] = useState(false)
+	const [showBottomBorder, setShowBottomBorder] = useState(false)
+
+	useEffect(() => {
+		const handleScroll = () => setShowBottomBorder(!!window.scrollY)
+
+		window.addEventListener('scroll', handleScroll)
+
+		return () => {
+			window.removeEventListener('scroll', handleScroll)
+		}
+	}, [])
 
 	return (
-		<header className={styles.header}>
+		<header
+			className={cn(styles.header, {
+				[styles['header--bottom-border']]: showBottomBorder,
+			})}
+		>
 			<button
 				onClick={() => setShowMobileNavMenu(!showMobileNavMenu)}
 				className={cn(styles['header__menu-btn'], {
