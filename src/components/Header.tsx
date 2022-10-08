@@ -18,7 +18,7 @@ const Header = () => {
 	const [showBottomBorder, setShowBottomBorder] = useState(false)
 
 	useEffect(() => {
-		const handleScroll = () => setShowBottomBorder(!!window.scrollY)
+		const handleScroll = () => setShowBottomBorder(window.scrollY > 60)
 
 		window.addEventListener('scroll', handleScroll)
 
