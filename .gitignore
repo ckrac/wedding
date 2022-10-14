@@ -24,6 +24,8 @@ yarn-error.log*
 .pnpm-debug.log*
 
 # local env files
+.env
+.env.*
 .env*.local
 
 # vercel
@@ -35,3 +37,21 @@ next-env.d.ts
 
 # turbo
 .turbo
+
+############################
+# Strapi
+############################
+license.txt
+exports
+*.cache
+build
+.strapi-updater.json
+dist
+
+# Logs and databases
+
+.tmp
+*.log
+*.sql
+*.sqlite
+*.sqlite3
