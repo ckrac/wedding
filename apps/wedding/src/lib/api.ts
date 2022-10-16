@@ -48,3 +48,16 @@ export async function fetchAPI(
 	const data = await response.json()
 	return data
 }
+
+type MediaData = {
+	data: {
+		attributes: { url?: string }
+	}
+}
+
+export function getStrapiMedia(mediaData: MediaData) {
+	const { url } = mediaData.data.attributes
+	if (!url) return
+	const imageUrl = url.startsWith('/') ? getStrapiURL(url) : url
+	return imageUrl
+}
