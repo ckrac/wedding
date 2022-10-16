@@ -32,7 +32,7 @@ async function setPublicPermissions(newPermissions: Permissions) {
 const bootstrap = async () => {
 	// Allow read of application content types
 	await setPublicPermissions({
-		faqs: ['find', 'findOne'],
+		faq: ['find', 'findOne'],
 	})
 
 	console.log('Ready to go')
