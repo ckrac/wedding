@@ -1,0 +1,35 @@
+{
+	"kind": "collectionType",
+	"collectionName": "friends",
+	"info": {
+		"singularName": "friend",
+		"pluralName": "friends",
+		"displayName": "Friend",
+		"name": "friend"
+	},
+	"options": {
+		"draftAndPublish": true
+	},
+	"pluginOptions": {},
+	"attributes": {
+		"name": {
+			"type": "string",
+			"required": true
+		},
+		"description": {
+			"type": "string",
+			"required": true
+		},
+		"role": {
+			"type": "enumeration",
+			"enum": ["BRIDESMAID", "GROOMSMAN"],
+			"required": true
+		},
+		"image": {
+			"allowedTypes": ["images"],
+			"type": "media",
+			"multiple": false,
+			"required": true
+		}
+	}
+}

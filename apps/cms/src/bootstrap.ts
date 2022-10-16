@@ -33,6 +33,7 @@ const bootstrap = async () => {
 	// Allow read of application content types
 	await setPublicPermissions({
 		faq: ['find', 'findOne'],
+		friend: ['find', 'findOne'],
 	})
 
 	console.log('Ready to go')
