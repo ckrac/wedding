@@ -14,10 +14,13 @@ import {
   BooleanAttribute,
   EnumerationAttribute,
   IntegerAttribute,
-  RichTextAttribute,
-  UIDAttribute,
   DecimalAttribute,
   SetMinMax,
+  RichTextAttribute,
+  UIDAttribute,
+  MediaAttribute,
+  DateAttribute,
+  TimeAttribute,
 } from '@strapi/strapi';
 
 export interface AdminPermission extends CollectionTypeSchema {
@@ -266,32 +269,6 @@ export interface AdminApiTokenPermission extends CollectionTypeSchema {
       'oneToOne',
       'admin::user'
     > &
-      PrivateAttribute;
-  };
-}
-
-export interface ApiFaqFaq extends CollectionTypeSchema {
-  info: {
-    singularName: 'faq';
-    pluralName: 'faqs';
-    displayName: 'FAQ';
-    name: 'faq';
-  };
-  options: {
-    increments: true;
-    timestamps: true;
-    draftAndPublish: true;
-  };
-  attributes: {
-    question: StringAttribute & RequiredAttribute;
-    answer: RichTextAttribute & RequiredAttribute;
-    slug: UIDAttribute<'api::faq.faq', 'question'> & RequiredAttribute;
-    createdAt: DateTimeAttribute;
-    updatedAt: DateTimeAttribute;
-    publishedAt: DateTimeAttribute;
-    createdBy: RelationAttribute<'api::faq.faq', 'oneToOne', 'admin::user'> &
-      PrivateAttribute;
-    updatedBy: RelationAttribute<'api::faq.faq', 'oneToOne', 'admin::user'> &
       PrivateAttribute;
   };
 }
@@ -604,6 +581,102 @@ export interface PluginI18NLocale extends CollectionTypeSchema {
   };
 }
 
+export interface ApiFaqFaq extends CollectionTypeSchema {
+  info: {
+    singularName: 'faq';
+    pluralName: 'faqs';
+    displayName: 'FAQ';
+    name: 'faq';
+  };
+  options: {
+    increments: true;
+    timestamps: true;
+    draftAndPublish: true;
+  };
+  attributes: {
+    question: StringAttribute & RequiredAttribute;
+    answer: RichTextAttribute & RequiredAttribute;
+    slug: UIDAttribute<'api::faq.faq', 'question'> & RequiredAttribute;
+    createdAt: DateTimeAttribute;
+    updatedAt: DateTimeAttribute;
+    publishedAt: DateTimeAttribute;
+    createdBy: RelationAttribute<'api::faq.faq', 'oneToOne', 'admin::user'> &
+      PrivateAttribute;
+    updatedBy: RelationAttribute<'api::faq.faq', 'oneToOne', 'admin::user'> &
+      PrivateAttribute;
+  };
+}
+
+export interface ApiFriendFriend extends CollectionTypeSchema {
+  info: {
+    singularName: 'friend';
+    pluralName: 'friends';
+    displayName: 'Friend';
+    name: 'friend';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    name: StringAttribute & RequiredAttribute;
+    description: StringAttribute & RequiredAttribute;
+    role: EnumerationAttribute<['BRIDESMAID', 'GROOMSMAN']> & RequiredAttribute;
+    image: MediaAttribute & RequiredAttribute;
+    createdAt: DateTimeAttribute;
+    updatedAt: DateTimeAttribute;
+    publishedAt: DateTimeAttribute;
+    createdBy: RelationAttribute<
+      'api::friend.friend',
+      'oneToOne',
+      'admin::user'
+    > &
+      PrivateAttribute;
+    updatedBy: RelationAttribute<
+      'api::friend.friend',
+      'oneToOne',
+      'admin::user'
+    > &
+      PrivateAttribute;
+  };
+}
+
+export interface ApiItineraryItinerary extends CollectionTypeSchema {
+  info: {
+    singularName: 'itinerary';
+    pluralName: 'itineraries';
+    displayName: 'Itinerary';
+  };
+  options: {
+    draftAndPublish: true;
+    comment: '';
+  };
+  attributes: {
+    title: StringAttribute;
+    date: DateAttribute;
+    startTime: TimeAttribute;
+    endTime: TimeAttribute;
+    description: StringAttribute;
+    streetAddress: StringAttribute;
+    cityProvinceZIPCodeAddress: StringAttribute;
+    mapLink: StringAttribute;
+    createdAt: DateTimeAttribute;
+    updatedAt: DateTimeAttribute;
+    publishedAt: DateTimeAttribute;
+    createdBy: RelationAttribute<
+      'api::itinerary.itinerary',
+      'oneToOne',
+      'admin::user'
+    > &
+      PrivateAttribute;
+    updatedBy: RelationAttribute<
+      'api::itinerary.itinerary',
+      'oneToOne',
+      'admin::user'
+    > &
+      PrivateAttribute;
+  };
+}
+
 declare global {
   namespace Strapi {
     interface Schemas {
@@ -612,13 +685,15 @@ declare global {
       'admin::role': AdminRole;
       'admin::api-token': AdminApiToken;
       'admin::api-token-permission': AdminApiTokenPermission;
-      'api::faq.faq': ApiFaqFaq;
       'plugin::upload.file': PluginUploadFile;
       'plugin::upload.folder': PluginUploadFolder;
       'plugin::users-permissions.permission': PluginUsersPermissionsPermission;
       'plugin::users-permissions.role': PluginUsersPermissionsRole;
       'plugin::users-permissions.user': PluginUsersPermissionsUser;
       'plugin::i18n.locale': PluginI18NLocale;
+      'api::faq.faq': ApiFaqFaq;
+      'api::friend.friend': ApiFriendFriend;
+      'api::itinerary.itinerary': ApiItineraryItinerary;
     }
   }
 }

@@ -1,0 +1,39 @@
+{
+	"kind": "collectionType",
+	"collectionName": "itineraries",
+	"info": {
+		"singularName": "itinerary",
+		"pluralName": "itineraries",
+		"displayName": "Itinerary"
+	},
+	"options": {
+		"draftAndPublish": true,
+		"comment": ""
+	},
+	"attributes": {
+		"title": {
+			"type": "string"
+		},
+		"date": {
+			"type": "date"
+		},
+		"startTime": {
+			"type": "time"
+		},
+		"endTime": {
+			"type": "time"
+		},
+		"description": {
+			"type": "string"
+		},
+		"streetAddress": {
+			"type": "string"
+		},
+		"cityProvinceZIPCodeAddress": {
+			"type": "string"
+		},
+		"mapLink": {
+			"type": "string"
+		}
+	}
+}

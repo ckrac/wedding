@@ -34,6 +34,7 @@ const bootstrap = async () => {
 	await setPublicPermissions({
 		faq: ['find', 'findOne'],
 		friend: ['find', 'findOne'],
+		itinerary: ['find', 'findOne'],
 	})
 
 	console.log('Ready to go')
