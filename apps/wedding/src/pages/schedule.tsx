@@ -1,95 +1,99 @@
 import React from 'react'
-import type { NextPage } from 'next'
+import type { InferGetStaticPropsType } from 'next'
 import cn from 'classnames'
 import styles from '@styles/pages/schedule.module.scss'
+import { fetchAPI } from '@src/lib/api'
+import { ApiItineraryItinerary } from 'cms/schemas'
 
-const Schedules = [
-	{
-		event: 'WELCOME DRINKS',
-		date: 'FRIDAY, JUNE 7, 2019',
-		time: '9:00 PM',
-		address: ['Fairmont', '950 Mason St', 'San Francisco, CA 94108'],
-		description: `There will be a few light bites in addition to cocktails. Can’t wait to see you!`,
-	},
-	{
-		event: 'CEREMONY',
-		date: 'SATURDAY, JUNE 8, 2019',
-		time: '5:30 PM',
-		address: [
-			'Palace of Fine Arts Theatre',
-			'3301 Lyon Street',
-			`San Francisco, CA 94123`,
-		],
-		description: `The grass can be a little soft, so you might want to rethink stilettos!`,
-	},
-	{
-		event: 'RECEPTION',
-		date: 'SATURDAY, JUNE 8, 2019',
-		time: '7:00 PM - 11:00 PM',
-		address: [
-			'Palace of Fine Arts Theatre',
-			'3301 Lyon Street',
-			`San Francisco, CA 94123`,
-		],
-		description: `Dinner, drinks and dancing to follow our ceremony! There's an outdoor space that can get a little chilly at night—we recommend bringing a shawl or light jacket.`,
-	},
-	{
-		event: 'BRUNCH',
-		date: 'SATURDAY, JUNE 8, 2019',
-		time: '10:00 AM - 12:00 PM',
-		address: [
-			'Palace of Fine Arts Theatre',
-			'3301 Lyon Street',
-			`San Francisco, CA 94123`,
-		],
-		description: `A final gathering before we all head home.`,
-	},
-]
+type Itinerary = {
+	[Property in keyof ApiItineraryItinerary['attributes']]: string
+}
 
-const Schedule: NextPage = () => {
-	function onMapClick() {
-		window?.open(
-			'https://www.google.com/maps/place/75+E+Liberty+St,+Toronto,+ON+M6K+3R3/@43.6380814,-79.4169816,17z/data=!3m1!4b1!4m5!3m4!1s0x882b35035a5d382f:0x886bed28e8ebb928!8m2!3d43.6380814!4d-79.4147929',
-			'_blank'
-		)
-	}
+function onMapClick(link: string) {
+	window?.open(link, '_blank')
+}
 
-	return (
-		<div className='page-container'>
-			<div className='page-header'>
-				<h1 className='page-title'>Schedule</h1>
-				<p className='page-description'>
-					{`Here's what to expect during our wedding weekend. There will also be a printout of this schedule available in your hotel rooms. We can't wait to celebrate with you!`}
-				</p>
-			</div>
+function formatDate(date: string) {
+	return new Date(date.replace(/-/g, '/')).toDateString() // returned date is 2023-08-05 Year-Month-Day, replace hyphens to correct date object parser
+}
 
-			<ol className={cn('card-list', styles['responsive-card-list'])}>
-				{Schedules.map(({ event, date, time, address, description }) => (
-					<li key={event} className='card'>
+function formatTime(date: string, time: string) {
+	const [hours, minutes] = time.split(':') // returned time is 00:18:00.000 = 00:hour:minute:00.000
+	return new Date(
+		`${date.replace(/-/g, '/')} ${hours}:${minutes}`
+	).toLocaleTimeString('en-US', {
+		hour: 'numeric',
+		minute: '2-digit',
+	})
+}
+
+const Schedule = ({
+	itineraries,
+}: InferGetStaticPropsType<typeof getStaticProps>) => (
+	<div className='page-container'>
+		<div className='page-header'>
+			<h1 className='page-title'>Schedule</h1>
+			<p className='page-description'>
+				{`Here's what to expect during our wedding weekend. There will also be a printout of this schedule available in your hotel rooms. We can't wait to celebrate with you!`}
+			</p>
+		</div>
+
+		<ol className={cn('card-list', styles['responsive-card-list'])}>
+			{itineraries.map(
+				({
+					id,
+					attributes: {
+						title,
+						description,
+						date,
+						startTime,
+						endTime,
+						streetAddress,
+						cityProvinceZIPCodeAddress,
+						mapLink,
+					},
+				}) => (
+					<li key={id} className='card'>
 						<div className='card-header'>
-							<h2 className='card-title'>{event}</h2>
-							<p className='card-subtitle'>{date}</p>
-							<p className='card-subtitle'>{time}</p>
+							<h2 className='card-title'>{title}</h2>
+							<p className='card-subtitle'>{formatDate(date)}</p>
+							<p className='card-subtitle'>{`${formatTime(date, startTime)} ${
+								endTime ? '- ' + formatTime(date, endTime) : ''
+							}`}</p>
 						</div>
 						<div className='card-content'>
 							<address className='card-description'>
-								{address.map((a) => (
-									<React.Fragment key={a}>
-										{a}
-										<br />
-									</React.Fragment>
-								))}
+								{streetAddress}
+								<br />
+								{cityProvinceZIPCodeAddress}
 							</address>
 							<p className='card-description'>{description}</p>
-							<button className='primary-button' onClick={onMapClick}>
+							<button
+								className='primary-button'
+								onClick={() => onMapClick(mapLink)}
+							>
 								MAP
 							</button>
 						</div>
 					</li>
-				))}
-			</ol>
-		</div>
-	)
+				)
+			)}
+		</ol>
+	</div>
+)
+
+export async function getStaticProps() {
+	const itineraryRes = await fetchAPI('/itineraries', { populate: '*' })
+	console.log(itineraryRes.data)
+	return {
+		props: {
+			itineraries: itineraryRes.data as {
+				id: number
+				attributes: Itinerary
+			}[],
+		},
+		revalidate: 1,
+	}
 }
 
 export default Schedule
