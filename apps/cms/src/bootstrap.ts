@@ -35,6 +35,7 @@ const bootstrap = async () => {
 		faq: ['find', 'findOne'],
 		friend: ['find', 'findOne'],
 		itinerary: ['find', 'findOne'],
+		photo: ['find', 'findOne'],
 	})
 
 	console.log('Ready to go')
