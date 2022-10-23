@@ -84,7 +84,7 @@ const Schedule = ({
 
 export async function getStaticProps() {
 	const itineraryRes = await fetchAPI('/itineraries', { populate: '*' })
-	console.log(itineraryRes.data)
+
 	return {
 		props: {
 			itineraries: itineraryRes.data as {
