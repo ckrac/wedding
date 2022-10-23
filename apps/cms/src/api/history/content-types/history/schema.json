@@ -1,0 +1,29 @@
+{
+	"kind": "collectionType",
+	"collectionName": "histories",
+	"info": {
+		"singularName": "history",
+		"pluralName": "histories",
+		"displayName": "History",
+		"name": "history"
+	},
+	"options": {
+		"increments": true,
+		"timestamps": true,
+		"draftAndPublish": true
+	},
+	"pluginOptions": {},
+	"attributes": {
+		"title": {
+			"type": "string",
+			"required": true
+		},
+		"description": {
+			"type": "richtext",
+			"required": true
+		},
+		"date": {
+			"type": "date"
+		}
+	}
+}
