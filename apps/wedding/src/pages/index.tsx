@@ -1,30 +1,23 @@
-import type { NextPage } from 'next'
+import type { InferGetStaticPropsType } from 'next'
 import styles from '@styles/pages/home.module.scss'
+import { fetchAPI } from '@src/lib/api'
+import { ApiHistoryHistory } from 'cms/schemas'
 
-const AboutUs = [
-	{
-		title: 'HOW WE MET',
-		subtitle: '5.23.15',
-		description: `We met at a classmate’s party and didn’t think much of it. Then a
-						bunch of us went to karaoke after a long day of back-to-back classes
-						and we both picked, “I’d Do Anything for Love.” And it just clicked.
-						He went low, I went high. There were fist pumps. We harmonized by
-						accident. That’s pretty much when we thought, “Okay. This could be
-						something.”`,
-	},
-	{
-		title: 'THE PROPOSAL',
-		subtitle: '7.29.22',
-		description: `On the anniversary of when we first met, we went back to our old
-						stomping grounds to do karaoke with friends. When "I'd Do Anything
-						for Love" came on, we ran up to the front. When the music suddenly
-						died down, I looked over and he was down on one knee. I screamed,
-						shouted "YES," and we were engaged. We're so excited to celebrate
-						this next chapter in our lives with you. See you in San Fran!`,
-	},
-]
+type History = {
+	[Property in keyof ApiHistoryHistory['attributes']]: string
+}
 
-const Home: NextPage = () => {
+function formatDate(date: string) {
+	const dateObj = new Date(date.replace(/-/g, '/')) // returned date is 2023-08-05 Year-Month-Day, replace hyphens to correct date object parser
+	const day = dateObj.getDay()
+	const month = dateObj.getMonth() + 1
+	const year = dateObj.getFullYear()
+	return `${month}.${day}.${year}`
+}
+
+const Home = ({
+	histories,
+}: InferGetStaticPropsType<typeof getStaticProps>) => {
 	return (
 		<div className={styles.home}>
 			<div className={styles['home__header']}>
@@ -58,11 +51,13 @@ const Home: NextPage = () => {
 			</section>
 
 			<div className={styles['home__about-us-container']}>
-				{AboutUs.map(({ description, subtitle, title }) => (
-					<section key={title} className={styles['home__about-us']}>
+				{histories.map(({ id, attributes: { title, description, date } }) => (
+					<section key={id} className={styles['home__about-us']}>
 						<div className={styles['home__about-us__header']}>
 							<h5 className={styles['home__about-us__title']}>{title}</h5>
-							<h6 className={styles['home__about-us__subtitle']}>{subtitle}</h6>
+							<h6 className={styles['home__about-us__subtitle']}>
+								{formatDate(date).toString()}
+							</h6>
 						</div>
 						<p className={styles['home__about-us__description']}>
 							{description}
@@ -72,6 +67,20 @@ const Home: NextPage = () => {
 			</div>
 		</div>
 	)
+}
+
+export async function getStaticProps() {
+	const res = await fetchAPI('/histories', { populate: '*' })
+
+	return {
+		props: {
+			histories: res.data as {
+				id: number
+				attributes: History
+			}[],
+		},
+		revalidate: 1,
+	}
 }
 
 export default Home

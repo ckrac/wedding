@@ -640,6 +640,40 @@ export interface ApiFriendFriend extends CollectionTypeSchema {
   };
 }
 
+export interface ApiHistoryHistory extends CollectionTypeSchema {
+  info: {
+    singularName: 'history';
+    pluralName: 'histories';
+    displayName: 'History';
+    name: 'history';
+  };
+  options: {
+    increments: true;
+    timestamps: true;
+    draftAndPublish: true;
+  };
+  attributes: {
+    title: StringAttribute & RequiredAttribute;
+    description: RichTextAttribute & RequiredAttribute;
+    date: DateAttribute;
+    createdAt: DateTimeAttribute;
+    updatedAt: DateTimeAttribute;
+    publishedAt: DateTimeAttribute;
+    createdBy: RelationAttribute<
+      'api::history.history',
+      'oneToOne',
+      'admin::user'
+    > &
+      PrivateAttribute;
+    updatedBy: RelationAttribute<
+      'api::history.history',
+      'oneToOne',
+      'admin::user'
+    > &
+      PrivateAttribute;
+  };
+}
+
 export interface ApiItineraryItinerary extends CollectionTypeSchema {
   info: {
     singularName: 'itinerary';
@@ -677,6 +711,36 @@ export interface ApiItineraryItinerary extends CollectionTypeSchema {
   };
 }
 
+export interface ApiPhotoPhoto extends CollectionTypeSchema {
+  info: {
+    singularName: 'photo';
+    pluralName: 'photos';
+    displayName: 'Photo';
+    name: 'photo';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    image: MediaAttribute & RequiredAttribute;
+    createdAt: DateTimeAttribute;
+    updatedAt: DateTimeAttribute;
+    publishedAt: DateTimeAttribute;
+    createdBy: RelationAttribute<
+      'api::photo.photo',
+      'oneToOne',
+      'admin::user'
+    > &
+      PrivateAttribute;
+    updatedBy: RelationAttribute<
+      'api::photo.photo',
+      'oneToOne',
+      'admin::user'
+    > &
+      PrivateAttribute;
+  };
+}
+
 declare global {
   namespace Strapi {
     interface Schemas {
@@ -693,7 +757,9 @@ declare global {
       'plugin::i18n.locale': PluginI18NLocale;
       'api::faq.faq': ApiFaqFaq;
       'api::friend.friend': ApiFriendFriend;
+      'api::history.history': ApiHistoryHistory;
       'api::itinerary.itinerary': ApiItineraryItinerary;
+      'api::photo.photo': ApiPhotoPhoto;
     }
   }
 }
