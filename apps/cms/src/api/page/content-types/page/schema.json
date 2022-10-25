@@ -1,0 +1,30 @@
+{
+	"kind": "singleType",
+	"collectionName": "page",
+	"info": {
+		"singularName": "page",
+		"pluralName": "pages",
+		"displayName": "Page"
+	},
+	"options": {
+		"draftAndPublish": true,
+		"comment": ""
+	},
+	"attributes": {
+		"homeDescription": {
+			"type": "string"
+		},
+		"scheduleDescription": {
+			"type": "string"
+		},
+		"weddingPartyDescription": {
+			"type": "string"
+		},
+		"photosDescription": {
+			"type": "string"
+		},
+		"faqsDescription": {
+			"type": "string"
+		}
+	}
+}

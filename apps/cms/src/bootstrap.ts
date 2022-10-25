@@ -36,6 +36,7 @@ const bootstrap = async () => {
 		friend: ['find', 'findOne'],
 		history: ['find', 'findOne'],
 		itinerary: ['find', 'findOne'],
+		page: ['find', 'findOne'],
 		photo: ['find', 'findOne'],
 	})
 
