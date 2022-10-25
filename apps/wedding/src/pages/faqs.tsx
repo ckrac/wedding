@@ -4,13 +4,14 @@ import styles from '@styles/pages/faqs.module.scss'
 import { fetchAPI } from '@src/lib/api'
 import { ApiFaqFaq } from 'cms/schemas'
 
-const Faqs = ({ faqs }: InferGetStaticPropsType<typeof getStaticProps>) => (
+const Faqs = ({
+	description,
+	faqs,
+}: InferGetStaticPropsType<typeof getStaticProps>) => (
 	<div className='page-container'>
 		<div className='page-header'>
 			<h1 className='page-title'>FAQs</h1>
-			<p className='page-description'>
-				{`If you have any other questions other than what we’ve listed here, please reach out to our wedding planner, Annie, at 555-555-5555.`}
-			</p>
+			<p className='page-description'>{description}</p>
 		</div>
 
 		<ul className={cn('card-list', styles['responsive-card-list'])}>
@@ -32,10 +33,13 @@ const Faqs = ({ faqs }: InferGetStaticPropsType<typeof getStaticProps>) => (
 )
 
 export async function getStaticProps() {
-	const faqsRes = await fetchAPI('/faqs', {
-		['fields[0]']: 'answer',
-		['fields[1]']: 'question',
-	})
+	const [faqsRes, pageRes] = await Promise.all([
+		fetchAPI('/faqs', {
+			['fields[0]']: 'answer',
+			['fields[1]']: 'question',
+		}),
+		fetchAPI('/page', { ['fields[0]']: 'faqsDescription' }),
+	])
 
 	return {
 		props: {
@@ -43,6 +47,7 @@ export async function getStaticProps() {
 				id: number
 				attributes: ApiFaqFaq['attributes']
 			}[],
+			description: pageRes.data.attributes.faqsDescription,
 		},
 		revalidate: 1,
 	}

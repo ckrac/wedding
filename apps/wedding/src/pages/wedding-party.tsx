@@ -5,14 +5,13 @@ import React from 'react'
 import { fetchAPI, getStrapiMedia } from '@src/lib/api'
 
 const WeddingParty = ({
+	description,
 	friends,
 }: InferGetStaticPropsType<typeof getStaticProps>) => (
 	<div className='page-container'>
 		<div className='page-header'>
 			<h1 className='page-title'>Wedding Party</h1>
-			<p className='page-description'>
-				Meet our family and friends who are walking down the aisle with us.
-			</p>
+			<p className='page-description'>{description}</p>
 		</div>
 		<ul className={cn('card-list', styles['responsive-card-list'])}>
 			{friends.map(
@@ -43,7 +42,10 @@ const WeddingParty = ({
 )
 
 export async function getStaticProps() {
-	const friendsRes = await fetchAPI('/friends', { populate: '*' })
+	const [friendsRes, pageRes] = await Promise.all([
+		fetchAPI('/friends', { populate: '*' }),
+		fetchAPI('/page', { ['fields[0]']: 'weddingPartyDescription' }),
+	])
 
 	return {
 		props: {
@@ -58,6 +60,7 @@ export async function getStaticProps() {
 					}
 				}
 			}[],
+			description: pageRes.data.attributes.weddingPartyDescription,
 		},
 		revalidate: 1,
 	}

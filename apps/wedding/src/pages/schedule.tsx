@@ -28,14 +28,13 @@ function formatTime(date: string, time: string) {
 }
 
 const Schedule = ({
+	description,
 	itineraries,
 }: InferGetStaticPropsType<typeof getStaticProps>) => (
 	<div className='page-container'>
 		<div className='page-header'>
 			<h1 className='page-title'>Schedule</h1>
-			<p className='page-description'>
-				{`Here's what to expect during our wedding weekend. There will also be a printout of this schedule available in your hotel rooms. We can't wait to celebrate with you!`}
-			</p>
+			<p className='page-description'>{description}</p>
 		</div>
 
 		<ol className={cn('card-list', styles['responsive-card-list'])}>
@@ -83,7 +82,10 @@ const Schedule = ({
 )
 
 export async function getStaticProps() {
-	const itineraryRes = await fetchAPI('/itineraries', { populate: '*' })
+	const [itineraryRes, pageRes] = await Promise.all([
+		fetchAPI('/itineraries', { populate: '*' }),
+		fetchAPI('/page', { ['fields[0]']: 'scheduleDescription' }),
+	])
 
 	return {
 		props: {
@@ -91,6 +93,7 @@ export async function getStaticProps() {
 				id: number
 				attributes: Itinerary
 			}[],
+			description: pageRes.data.attributes.scheduleDescription,
 		},
 		revalidate: 1,
 	}

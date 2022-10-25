@@ -2,30 +2,32 @@ import type { InferGetStaticPropsType } from 'next'
 import styles from '@styles/pages/photo.module.scss'
 import { fetchAPI, getStrapiMedia } from '@src/lib/api'
 
-const Photos = ({ photos }: InferGetStaticPropsType<typeof getStaticProps>) => {
-	return (
-		<div className='page-container'>
-			<div className='page-header'>
-				<h1 className='page-title'>Photos</h1>
-				<p className='page-description'>
-					A few snaps taken of us over the years…
-				</p>
-			</div>
-			<div className={styles['photos-container']}>
-				{photos.map(({ id, attributes: { image } }) => (
-					<img key={id} className={styles.photo} src={getStrapiMedia(image)} />
-				))}
-			</div>
+const Photos = ({
+	description,
+	photos,
+}: InferGetStaticPropsType<typeof getStaticProps>) => (
+	<div className='page-container'>
+		<div className='page-header'>
+			<h1 className='page-title'>Photos</h1>
+			<p className='page-description'>{description}</p>
 		</div>
-	)
-}
+		<div className={styles['photos-container']}>
+			{photos.map(({ id, attributes: { image } }) => (
+				<img key={id} className={styles.photo} src={getStrapiMedia(image)} />
+			))}
+		</div>
+	</div>
+)
 
 export async function getStaticProps() {
-	const res = await fetchAPI('/photos', { populate: '*' })
+	const [photosRes, pageRes] = await Promise.all([
+		fetchAPI('/photos', { populate: '*' }),
+		fetchAPI('/page', { ['fields[0]']: 'photosDescription' }),
+	])
 
 	return {
 		props: {
-			photos: res.data as {
+			photos: photosRes.data as {
 				id: number
 				attributes: {
 					image: {
@@ -33,6 +35,7 @@ export async function getStaticProps() {
 					}
 				}
 			}[],
+			description: pageRes.data.attributes.photosDescription,
 		},
 		revalidate: 1,
 	}
