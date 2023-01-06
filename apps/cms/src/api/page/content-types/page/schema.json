@@ -11,6 +11,13 @@
 		"comment": ""
 	},
 	"attributes": {
+		"order": {
+			"type": "integer",
+			"required": true,
+			"unique": false,
+			"default": 0,
+			"min": 0
+		},
 		"homeDescription": {
 			"type": "string"
 		},
