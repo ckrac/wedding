@@ -43,7 +43,7 @@ const WeddingParty = ({
 
 export async function getStaticProps() {
 	const [friendsRes, pageRes] = await Promise.all([
-		fetchAPI('/friends', { populate: '*' }),
+		fetchAPI('/friends', { populate: '*', ['sort[0]']: 'order:desc' }),
 		fetchAPI('/page', { ['fields[0]']: 'weddingPartyDescription' }),
 	])
 

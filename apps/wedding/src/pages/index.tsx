@@ -68,7 +68,7 @@ const Home = ({
 
 export async function getStaticProps() {
 	const [historiesRes, pageRes] = await Promise.all([
-		fetchAPI('/histories', { populate: '*' }),
+		fetchAPI('/histories', { populate: '*', ['sort[0]']: 'order:desc' }),
 		fetchAPI('/page', { ['fields[0]']: 'homeDescription' }),
 	])
 

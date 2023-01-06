@@ -12,11 +12,21 @@
 	},
 	"pluginOptions": {},
 	"attributes": {
+		"order": {
+			"type": "integer",
+			"required": true,
+			"unique": false,
+			"default": 0,
+			"min": 0
+		},
 		"image": {
 			"allowedTypes": ["images"],
 			"type": "media",
 			"multiple": false,
 			"required": true
+		},
+		"large": {
+			"type": "boolean"
 		}
 	}
 }

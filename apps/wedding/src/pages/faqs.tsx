@@ -35,6 +35,7 @@ const Faqs = ({
 export async function getStaticProps() {
 	const [faqsRes, pageRes] = await Promise.all([
 		fetchAPI('/faqs', {
+			['sort[0]']: 'order:desc',
 			['fields[0]']: 'answer',
 			['fields[1]']: 'question',
 		}),

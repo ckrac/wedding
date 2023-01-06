@@ -14,6 +14,13 @@
 	},
 	"pluginOptions": {},
 	"attributes": {
+		"order": {
+			"type": "integer",
+			"required": true,
+			"unique": false,
+			"default": 0,
+			"min": 0
+		},
 		"title": {
 			"type": "string",
 			"required": true
