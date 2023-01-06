@@ -83,7 +83,7 @@ const Schedule = ({
 
 export async function getStaticProps() {
 	const [itineraryRes, pageRes] = await Promise.all([
-		fetchAPI('/itineraries', { populate: '*' }),
+		fetchAPI('/itineraries', { populate: '*', ['sort[0]']: 'order:desc' }),
 		fetchAPI('/page', { ['fields[0]']: 'scheduleDescription' }),
 	])
 
