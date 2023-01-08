@@ -7,7 +7,6 @@ services:
       context: .
       dockerfile: ./apps/cms/Dockerfile
     image: cms:latest
-    restart: always
     env_file: ./apps/cms/.env
     environment:
       DATABASE_CLIENT: ${DATABASE_CLIENT}
@@ -20,19 +19,13 @@ services:
       ADMIN_JWT_SECRET: ${ADMIN_JWT_SECRET}
       APP_KEYS: ${APP_KEYS}
       NODE_ENV: ${NODE_ENV}
-    volumes:
-      - ./apps/cms/config:/opt/app/config
-      - ./apps/cms/src:/opt/app/src
-      - ./apps/cms/package.json:/opt/package.json
-      - ./apps/cms/yarn.lock:/opt/yarn.lock
-      - ./apps/cms/.env:/opt/app/.env
-      - ./apps/cms/public/uploads:/opt/app/public/uploads
     ports:
       - 1337:1337
     networks:
       - cms_network
     depends_on:
       - cmsDB
+    tty: true
 
   cmsDB:
     container_name: cmsDB

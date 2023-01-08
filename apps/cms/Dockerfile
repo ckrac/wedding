@@ -1,7 +1,7 @@
 FROM node:16-alpine AS builder
-# Check https://github.com/nodejs/docker-node/tree/b4117f9333da4138b03a546ec926ef50a31506c3#nodealpine to understand why libc6-compat might be needed.
-RUN apk add --no-cache libc6-compat
 RUN apk update
+# Check https://github.com/nodejs/docker-node/tree/b4117f9333da4138b03a546ec926ef50a31506c3#nodealpine to understand why libc6-compat might be needed.
+RUN apk add libc6-compat build-base gcc autoconf automake zlib-dev libpng-dev nasm bash vips-dev
 # Set working directory
 WORKDIR /app
 RUN yarn global add turbo
@@ -10,8 +10,10 @@ RUN turbo prune --scope=cms --docker
 
 # Add lockfile and package.json's of isolated subworkspace
 FROM node:16-alpine AS installer
-RUN apk add --no-cache libc6-compat build-base gcc autoconf automake zlib-dev libpng-dev nasm bash vips-dev
+
 RUN apk update
+RUN apk add libc6-compat build-base gcc autoconf automake zlib-dev libpng-dev nasm bash vips-dev
+
 WORKDIR /app
 
 # First install dependencies (as they change less often)
@@ -28,12 +30,10 @@ RUN yarn turbo run build --filter=cms...
 FROM node:16-alpine AS runner
 WORKDIR /app
 
-# Don't run production as root
-RUN addgroup --system --gid 1001 expressjs
-RUN adduser --system --uid 1001 expressjs
-USER expressjs
+RUN apk add vips-dev
+
 COPY --from=installer /app .
 
-WORKDIR /app/apps/cmi
+WORKDIR /app/apps/cms
 EXPOSE 1337
-CMD ["yarn", "dev-cms"]
+CMD ["yarn", "start"]

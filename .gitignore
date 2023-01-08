@@ -47,6 +47,9 @@ exports
 build
 .strapi-updater.json
 dist
+apps/cms/public/uploads/*.jpeg
+apps/cms/public/uploads/*.jpg
+apps/cms/public/uploads/*.png
 
 # Logs and databases
 
