@@ -1,0 +1,7 @@
+**/node_modules
+npm-debug.log
+Dockerfile
+docker-compose*
+apps/cms/public/uploads/*.jpeg
+apps/cms/public/uploads/*.jpg
+apps/cms/public/uploads/*.png

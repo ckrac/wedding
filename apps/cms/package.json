@@ -11,10 +11,10 @@
 	},
 	"devDependencies": {},
 	"dependencies": {
-		"@strapi/strapi": "4.4.3",
-		"@strapi/plugin-users-permissions": "4.4.3",
 		"@strapi/plugin-i18n": "4.4.3",
-		"better-sqlite3": "7.4.6"
+		"@strapi/plugin-users-permissions": "4.4.3",
+		"@strapi/strapi": "4.4.3",
+		"pg": "^8.8.0"
 	},
 	"strapi": {
 		"uuid": "8424ad61-c884-4e6e-bced-e0738fdc6ebe"
