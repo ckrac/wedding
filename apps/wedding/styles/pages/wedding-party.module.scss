@@ -1,7 +1,7 @@
 @import '../variables.scss';
 @import '../breakpoints.scss';
 
-$md-card-height: 550px;
+$md-card-height: 400px;
 
 .img {
 	height: 150px;
@@ -18,10 +18,6 @@ $md-card-height: 550px;
 		width: 100%;
 		padding-bottom: 50px;
 		border-bottom: 1px solid #000;
-	}
-
-	.card-description {
-		max-width: 415px;
 	}
 
 	@include md {
