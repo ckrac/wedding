@@ -11,7 +11,7 @@ const photos = [
 		largeSize: true,
 	},
 	{
-		src: '/proposal-1.JPG',
+		src: '/proposal-1.jpeg',
 		largeSize: false,
 	},
 	{
@@ -19,7 +19,7 @@ const photos = [
 		largeSize: false,
 	},
 	{
-		src: '/water.JPG',
+		src: '/water.jpeg',
 		largeSize: false,
 	},
 
@@ -32,7 +32,7 @@ const photos = [
 		largeSize: false,
 	},
 	{
-		src: '/sunset.JPG',
+		src: '/sunset.jpeg',
 		largeSize: false,
 	},
 	{

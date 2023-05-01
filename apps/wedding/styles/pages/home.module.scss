@@ -55,6 +55,14 @@
 		text-transform: uppercase;
 	}
 
+	&__countdown {
+		padding: 12px;
+		text-align: center;
+		font-size: 22px;
+		letter-spacing: 1px;
+		line-height: 29px;
+	}
+
 	&__wedding-info {
 		display: flex;
 		flex-direction: column;

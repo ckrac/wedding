@@ -9,31 +9,31 @@ const itineraries = [
 			'There will be a few light bites in addition to cocktails. Can’t wait to see you!',
 		date: 'SATURDAY, SEPTEMBER, 2023',
 		time: '4:30 PM',
-		streetAddress: '65 East Liberty St',
+		streetAddress: '75 East Liberty St',
 		cityProvinceZIPCodeAddress: 'Toronto, ONT M6K 3R2',
 		mapLink:
-			'https://www.google.com/maps?q=cn+tower&gs_lcp=Cgxnd3Mtd2l6LXNlcnAQAxgAMhMILhCDARCvARDHARCxAxCKBRBDMgoIABCKBRCxAxBDMggIABCABBCxAzIOCC4QrwEQxwEQsQMQgAQyBQgAEIAEMgsIABCABBCxAxCDATIRCC4QgwEQrwEQxwEQsQMQgAQyBwgAEIoFEEMyBQgAEIAEMgUIABCABDoKCAAQRxDWBBCwAzoKCAAQigUQsAMQQzoOCC4QigUQxwEQrwEQkQI6CAgAEIoFEJECOhEILhCABBCxAxCDARDHARDRAzoOCC4QgAQQsQMQxwEQ0QM6EwguEIMBEMcBELEDENEDEIoFEEM6DQgAEIoFELEDEIMBEEM6DQguEIoFEMcBEK8BEEM6EQguEIAEELEDEIMBEMcBEK8BOg4ILhCABBCxAxDHARCvAToQCC4QrwEQxwEQsQMQigUQQ0oECEEYAFDxCljQFGCLG2gBcAF4AIABfogBgweSAQMxLjeYAQCgAQHIAQnAAQE&um=1&ie=UTF-8&sa=X&ved=2ahUKEwiAnei1mPj9AhWKpIkEHbgyBQ8Q_AUoAnoECAEQBA',
+			'https://www.google.com/maps/place/75+E+Liberty+St,+Toronto,+ON+M6K+3R3/data=!4m2!3m1!1s0x882b35035a5d382f:0x886bed28e8ebb928?sa=X&ved=2ahUKEwipwYbPzdT-AhWWl2oFHdZHA6gQ8gF6BAgYEAI',
 	},
 	{
 		title: 'CEREMONY',
 		description:
-			'The grass can be a little soft, so you might want to rethink stilettos!',
+			'Join us for our heartfelt ceremony where we will exchange vows.',
 		date: 'SATURDAY, SEPTEMBER, 2023',
-		time: '5:00 PM',
-		streetAddress: '65 East Liberty St',
+		time: '5:30 PM',
+		streetAddress: '75 East Liberty St',
 		cityProvinceZIPCodeAddress: 'Toronto, ONT M6K 3R2',
 		mapLink:
-			'https://www.google.com/maps?q=cn+tower&gs_lcp=Cgxnd3Mtd2l6LXNlcnAQAxgAMhMILhCDARCvARDHARCxAxCKBRBDMgoIABCKBRCxAxBDMggIABCABBCxAzIOCC4QrwEQxwEQsQMQgAQyBQgAEIAEMgsIABCABBCxAxCDATIRCC4QgwEQrwEQxwEQsQMQgAQyBwgAEIoFEEMyBQgAEIAEMgUIABCABDoKCAAQRxDWBBCwAzoKCAAQigUQsAMQQzoOCC4QigUQxwEQrwEQkQI6CAgAEIoFEJECOhEILhCABBCxAxCDARDHARDRAzoOCC4QgAQQsQMQxwEQ0QM6EwguEIMBEMcBELEDENEDEIoFEEM6DQgAEIoFELEDEIMBEEM6DQguEIoFEMcBEK8BEEM6EQguEIAEELEDEIMBEMcBEK8BOg4ILhCABBCxAxDHARCvAToQCC4QrwEQxwEQsQMQigUQQ0oECEEYAFDxCljQFGCLG2gBcAF4AIABfogBgweSAQMxLjeYAQCgAQHIAQnAAQE&um=1&ie=UTF-8&sa=X&ved=2ahUKEwiAnei1mPj9AhWKpIkEHbgyBQ8Q_AUoAnoECAEQBA',
+			'https://www.google.com/maps/place/75+E+Liberty+St,+Toronto,+ON+M6K+3R3/data=!4m2!3m1!1s0x882b35035a5d382f:0x886bed28e8ebb928?sa=X&ved=2ahUKEwipwYbPzdT-AhWWl2oFHdZHA6gQ8gF6BAgYEAI',
 	},
 	{
 		title: 'RECEPTION',
 		description: `Dinner, drinks and dancing to follow our ceremony! There's an outdoor space that can get a little chilly at night—we recommend bringing a shawl or light jacket.`,
 		date: 'SATURDAY, SEPTEMBER, 2023',
-		time: '7:00 PM',
-		streetAddress: '65 East Liberty St',
+		time: '6:00 - 11:00 PM',
+		streetAddress: '75 East Liberty St',
 		cityProvinceZIPCodeAddress: 'Toronto, ONT M6K 3R2',
 		mapLink:
-			'https://www.google.com/maps?q=cn+tower&gs_lcp=Cgxnd3Mtd2l6LXNlcnAQAxgAMhMILhCDARCvARDHARCxAxCKBRBDMgoIABCKBRCxAxBDMggIABCABBCxAzIOCC4QrwEQxwEQsQMQgAQyBQgAEIAEMgsIABCABBCxAxCDATIRCC4QgwEQrwEQxwEQsQMQgAQyBwgAEIoFEEMyBQgAEIAEMgUIABCABDoKCAAQRxDWBBCwAzoKCAAQigUQsAMQQzoOCC4QigUQxwEQrwEQkQI6CAgAEIoFEJECOhEILhCABBCxAxCDARDHARDRAzoOCC4QgAQQsQMQxwEQ0QM6EwguEIMBEMcBELEDENEDEIoFEEM6DQgAEIoFELEDEIMBEEM6DQguEIoFEMcBEK8BEEM6EQguEIAEELEDEIMBEMcBEK8BOg4ILhCABBCxAxDHARCvAToQCC4QrwEQxwEQsQMQigUQQ0oECEEYAFDxCljQFGCLG2gBcAF4AIABfogBgweSAQMxLjeYAQCgAQHIAQnAAQE&um=1&ie=UTF-8&sa=X&ved=2ahUKEwiAnei1mPj9AhWKpIkEHbgyBQ8Q_AUoAnoECAEQBA',
+			'https://www.google.com/maps/place/75+E+Liberty+St,+Toronto,+ON+M6K+3R3/data=!4m2!3m1!1s0x882b35035a5d382f:0x886bed28e8ebb928?sa=X&ved=2ahUKEwipwYbPzdT-AhWWl2oFHdZHA6gQ8gF6BAgYEAI',
 	},
 ]
 
@@ -46,9 +46,8 @@ const Schedule = () => (
 		<div className='page-header'>
 			<h1 className='page-title'>Schedule</h1>
 			<p className='page-description'>
-				Here's what to expect during our wedding weekend. There will also be a
-				printout of this schedule available in your hotel rooms. We can't wait
-				to celebrate with you!
+				Here's what to expect during our wedding. We can't wait to celebrate
+				with you!
 			</p>
 		</div>
 

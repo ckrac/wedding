@@ -3,8 +3,12 @@ import styles from '@styles/pages/faqs.module.scss'
 
 const faqs = [
 	{
+		question: `IS YOUR WEDDING TRADITIONAL?`,
+		answer: `Our wedding will not be traditional. We are planning an intimate celebration with some fast-food elements, as we believe this best reflects our personalities and values. We look forward to sharing this special day with you in a way that is meaningful to us.`,
+	},
+	{
 		question: `ARE KIDS INVITED?`,
-		answer: `We adore your little ones, and we appreciate your understanding that we would like to make our wedding day a time for you to unwind and celebrate with us without any extra worries. So, we kindly request that you leave your children at home for the day. We hope you'll enjoy this special occasion with us, free of any additional stress or responsibilities. Let's all have a night to remember!`,
+		answer: `We love your little ones, but our wedding day is a time for you to unwind and celebrate with us without extra worries. Please leave your children at home for the day so you can enjoy this special occasion with us, free of any additional stress or responsibilities. Let's all have a night to remember.`,
 	},
 	{
 		question: `Can I bring a gift to the wedding?`,

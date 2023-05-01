@@ -6,7 +6,7 @@ const friends = [
 	{
 		name: 'Priscilla',
 		role: 'BRIDESMAID',
-		image: '/Daenerys_Targaryen.jpg',
+		image: '/priscilla.jpeg',
 	},
 	{
 		name: 'Kim',
@@ -17,40 +17,37 @@ const friends = [
 	{
 		name: 'Jady',
 		role: 'BRIDESMAID',
-		image: '/Daenerys_Targaryen.jpg',
+		image: '/jd.jpeg',
 	},
 	{
 		name: 'Ahmed',
 		role: 'GROOMSMAN',
-		image:
-			'https://a1cf74336522e87f135f-2f21ace9a6cf0052456644b80fa06d4f.ssl.cf2.rackcdn.com/images/characters/large/800/Tyrion-Lannister.Game-of-Thrones.webp',
+		image: '/ahmed.jpeg',
 	},
 	{
 		name: 'Kugi',
 		role: 'BRIDESMAID',
-		image: '/Daenerys_Targaryen.jpg',
+		image: '/kugi.jpeg',
 	},
 	{
 		name: 'Henry',
 		role: 'GROOMSMAN',
-		image:
-			'https://a1cf74336522e87f135f-2f21ace9a6cf0052456644b80fa06d4f.ssl.cf2.rackcdn.com/images/characters/large/800/Tyrion-Lannister.Game-of-Thrones.webp',
+		image: '/henry.jpeg',
 	},
 	{
 		name: 'Christine',
 		role: 'BRIDESMAID',
-		image: '/Daenerys_Targaryen.jpg',
+		image: '/christine.jpeg',
 	},
 	{
 		name: 'Kavi',
 		role: 'GROOMSMAN',
-		image:
-			'https://a1cf74336522e87f135f-2f21ace9a6cf0052456644b80fa06d4f.ssl.cf2.rackcdn.com/images/characters/large/800/Tyrion-Lannister.Game-of-Thrones.webp',
+		image: '/kavi.jpg',
 	},
 	{
 		name: 'Raisa',
 		role: 'BRIDESMAID',
-		image: '/Daenerys_Targaryen.jpg',
+		image: '/raisa.jpeg',
 	},
 ]
 
@@ -59,7 +56,7 @@ const WeddingParty = () => (
 		<div className='page-header'>
 			<h1 className='page-title'>Wedding Party</h1>
 			<p className='page-description'>
-				Meet our family and friends who are walking down the aisle with us.
+				Meet our friends who are walking down the aisle with us.
 			</p>
 		</div>
 		<ul className={cn('card-list', styles['responsive-card-list'])}>

@@ -20,6 +20,10 @@ const Home = () => (
 			</div>
 		</div>
 
+		<div className={styles['home__countdown']}>
+			{`We're thrilled to share this special moment with you and can't wait for you to join us as we embark on this next journey together.`}
+		</div>
+
 		<section className={styles['home__wedding-info']}>
 			<div className={styles['home__wedding-info-inner']}>
 				<h3 className={styles['home__date']}>
@@ -39,20 +43,7 @@ const Home = () => (
 					<h6 className={styles['home__about-us__subtitle']}>12.13.2014</h6>
 				</div>
 				<p className={styles['home__about-us__description']}>
-					Rebecca and Kenneth had been crossing paths at the gym for a few
-					years, but they had never been formally introduced. It wasn't until a
-					friend's party in December 2014 that their paths finally crossed.
-					During the course of the evening, Rebecca mustered up the courage to
-					give Kenneth her phone number. On Christmas Day, Kenneth sent her a
-					text wishing her a Merry Christmas, but without revealing his
-					identity. Confused, Rebecca responded with a simple "Merry Christmas!"
-					not realizing who it was.
-					<br />
-					<br />
-					Months later, while having dinner with friends, Rebecca revealed her
-					crush on Kenneth. Her friend Ivan, who knew Kenneth, eagerly handed
-					over his phone number to her. From that moment on, their story took a
-					new turn, leading to a memorable and meaningful relationship.
+					{`Rebecca and Kenneth crossed paths at the gym for years but never formally met. Finally, at a friend's party in December 2014, Rebecca gave Kenneth her number. On Christmas Day, Kenneth texted her but didn't reveal his identity, confusing Rebecca. Months later, Rebecca revealed her crush to a friend who gave her Kenneth's number, and the rest, as they say, is history.`}
 				</p>
 			</section>
 			<section className={styles['home__about-us']}>
@@ -62,7 +53,7 @@ const Home = () => (
 				</div>
 				<p
 					className={styles['home__about-us__description']}
-				>{`Kenneth, along with his friends Henry and Kugi, took Rebecca to the charming town of Port Hope. The group spent a delightful day exploring the area, enjoying lunch, and riding their bikes. As they took in the stunning view of the water, Henry suggested that they snap a group picture. Kugi then directed Rebecca's attention back to the breathtaking view. When she turned back, she was met with a surprising sight. Kenneth was down on one knee, with a ring box in hand and the sounds of Bruno Mars's "Marry You" in the background. He gazed up at her with a smile and asked, "Will you marry me?" Overcome with joy, Rebecca quickly slid the ring onto her finger before exclaiming a resounding "YES!"`}</p>
+				>{`Kenneth, with his friends Henry and Kugi, took Rebecca to Port Hope for a perfect day of exploring and biking. While admiring the water, Henry suggested a group photo. Kugi distracted Rebecca, and when she turned back, Kenneth proposed on one knee with a ring box and "Marry You" playing. Rebecca joyfully accepted with a "YES!" and slipped the ring on her finger.`}</p>
 			</section>
 		</div>
 	</div>
