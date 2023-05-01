@@ -20,7 +20,7 @@ jobs:
       - run: npm install -g yarn
       - run: yarn install --frozen-lockfile
       - run: yarn build
-      - uses: aws-actions/configure-aws-credentials@v1
+      - uses: aws-actions/configure-aws-credentials@v2
         with:
           role-to-assume: ${{ secrets.PROD_DEPLOY_ROLE }}
           aws-region: ${{ secrets.PROD_DEPLOY_REGION }}
