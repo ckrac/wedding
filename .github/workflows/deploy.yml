@@ -2,17 +2,15 @@ name: Deploy
 
 on:
   push:
-    branches: [ static-release ]
+    branches: [static-release]
 
 jobs:
   build:
     runs-on: ubuntu-latest
     environment: Production
-    permissions:
-      id-token: write    
     defaults:
       run:
-        working-directory: ./apps/wedding    
+        working-directory: ./apps/wedding
     steps:
       - uses: actions/checkout@v2
       - uses: actions/setup-node@v3
@@ -27,3 +25,16 @@ jobs:
           aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
           aws-region: ${{ secrets.PROD_DEPLOY_REGION }}
       - run: aws s3 sync ./out s3://kennethrebecca.com
+  invalidate-distribution-cache:
+    runs-on: ubuntu-latest
+    environment: Production
+    needs: build
+    steps:
+      - name: invalidate
+        uses: chetan/invalidate-cloudfront-action@v2
+        env:
+          PATHS: '/*'
+          AWS_REGION: ${{ secrets.PROD_DEPLOY_REGION }}
+          DISTRIBUTION: ${{ secrets.AWS_DISTRIBUTION }}
+          AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
+          AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
