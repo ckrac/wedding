@@ -6,7 +6,7 @@ const itineraries = [
 	{
 		title: 'WELCOME DRINKS',
 		description:
-			'There will be a few light bites in addition to cocktails. Can’t wait to see you!',
+			'There will be a few light bites in addition to drinks. Can’t wait to see you!',
 		date: 'SATURDAY, SEPTEMBER 23, 2023',
 		time: '4:30 PM',
 		streetAddress: '75 East Liberty St',
