@@ -70,7 +70,7 @@ const Header = () => {
 						<li
 							key={path}
 							className={cn(styles['header__nav-item'], {
-								[styles['header__nav-item--active']]: asPath === path,
+								[styles['header__nav-item--active']]: asPath === '/' + path,
 							})}
 							onClick={() => setShowMobileNavMenu(false)}
 						>
