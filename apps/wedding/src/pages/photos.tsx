@@ -3,40 +3,40 @@ import cn from 'classnames'
 
 const photos = [
 	{
-		src: 'mexico-1.jpeg',
+		src: '/mexico-1.jpeg',
 		largeSize: true,
 	},
 	{
-		src: 'with-hazel-1.jpeg',
+		src: '/with-hazel-1.jpeg',
 		largeSize: true,
 	},
 	{
-		src: 'proposal-1.JPG',
+		src: '/proposal-1.JPG',
 		largeSize: false,
 	},
 	{
-		src: 'with-hazel-3.jpeg',
+		src: '/with-hazel-3.jpeg',
 		largeSize: false,
 	},
 	{
-		src: 'water.JPG',
+		src: '/water.JPG',
 		largeSize: false,
 	},
 
 	{
-		src: 'proposal-2.jpeg',
+		src: '/proposal-2.jpeg',
 		largeSize: false,
 	},
 	{
-		src: 'mexico-2.jpeg',
+		src: '/mexico-2.jpeg',
 		largeSize: false,
 	},
 	{
-		src: 'sunset.JPG',
+		src: '/sunset.JPG',
 		largeSize: false,
 	},
 	{
-		src: 'with-hazel-2.jpeg',
+		src: '/with-hazel-2.jpeg',
 		largeSize: false,
 	},
 ]

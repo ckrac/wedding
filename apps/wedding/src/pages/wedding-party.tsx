@@ -6,7 +6,7 @@ const friends = [
 	{
 		name: 'Priscilla',
 		role: 'BRIDESMAID',
-		image: 'Daenerys_Targaryen.jpg',
+		image: '/Daenerys_Targaryen.jpg',
 	},
 	{
 		name: 'Kim',
@@ -17,7 +17,7 @@ const friends = [
 	{
 		name: 'Jady',
 		role: 'BRIDESMAID',
-		image: 'Daenerys_Targaryen.jpg',
+		image: '/Daenerys_Targaryen.jpg',
 	},
 	{
 		name: 'Ahmed',
@@ -28,7 +28,7 @@ const friends = [
 	{
 		name: 'Kugi',
 		role: 'BRIDESMAID',
-		image: 'Daenerys_Targaryen.jpg',
+		image: '/Daenerys_Targaryen.jpg',
 	},
 	{
 		name: 'Henry',
@@ -39,7 +39,7 @@ const friends = [
 	{
 		name: 'Christine',
 		role: 'BRIDESMAID',
-		image: 'Daenerys_Targaryen.jpg',
+		image: '/Daenerys_Targaryen.jpg',
 	},
 	{
 		name: 'Kavi',
@@ -50,7 +50,7 @@ const friends = [
 	{
 		name: 'Raisa',
 		role: 'BRIDESMAID',
-		image: 'Daenerys_Targaryen.jpg',
+		image: '/Daenerys_Targaryen.jpg',
 	},
 ]
 
