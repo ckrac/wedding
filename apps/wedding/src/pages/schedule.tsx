@@ -7,7 +7,7 @@ const itineraries = [
 		title: 'WELCOME DRINKS',
 		description:
 			'There will be a few light bites in addition to cocktails. Can’t wait to see you!',
-		date: 'SATURDAY, SEPTEMBER, 2023',
+		date: 'SATURDAY, SEPTEMBER 23, 2023',
 		time: '4:30 PM',
 		streetAddress: '75 East Liberty St',
 		cityProvinceZIPCodeAddress: 'Toronto, ONT M6K 3R2',
@@ -18,7 +18,7 @@ const itineraries = [
 		title: 'CEREMONY',
 		description:
 			'Join us for our heartfelt ceremony where we will exchange vows.',
-		date: 'SATURDAY, SEPTEMBER, 2023',
+		date: 'SATURDAY, SEPTEMBER 23, 2023',
 		time: '5:30 PM',
 		streetAddress: '75 East Liberty St',
 		cityProvinceZIPCodeAddress: 'Toronto, ONT M6K 3R2',
@@ -28,7 +28,7 @@ const itineraries = [
 	{
 		title: 'RECEPTION',
 		description: `Dinner, drinks and dancing to follow our ceremony! There's an outdoor space that can get a little chilly at night—we recommend bringing a shawl or light jacket.`,
-		date: 'SATURDAY, SEPTEMBER, 2023',
+		date: 'SATURDAY, SEPTEMBER 23, 2023',
 		time: '6:00 - 11:00 PM',
 		streetAddress: '75 East Liberty St',
 		cityProvinceZIPCodeAddress: 'Toronto, ONT M6K 3R2',
