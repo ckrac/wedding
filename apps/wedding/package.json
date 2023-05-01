@@ -4,7 +4,7 @@
 	"private": true,
 	"scripts": {
 		"dev": "next dev --port 3001",
-		"build": "next build",
+		"build": "next build && next export",
 		"start": "next start",
 		"lint": "next lint"
 	},
@@ -12,8 +12,7 @@
 		"classnames": "^2.3.2",
 		"next": "12.3.1",
 		"react": "18.2.0",
-		"react-dom": "18.2.0",
-		"cms": "*"
+		"react-dom": "18.2.0"
 	},
 	"devDependencies": {
 		"@babel/core": "^7.0.0",
