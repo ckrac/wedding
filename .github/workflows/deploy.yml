@@ -1,0 +1,27 @@
+name: Deploy
+
+on:
+  push:
+    branches: [ static-release ]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    permissions:
+      id-token: write    
+    defaults:
+      run:
+        working-directory: ./apps/wedding    
+    steps:
+      - uses: actions/checkout@v2
+      - uses: actions/setup-node@v1
+        with:
+          node-version: 16
+      - run: npm install -g yarn
+      - run: yarn install --frozen-lockfile
+      - run: yarn build
+      - uses: aws-actions/configure-aws-credentials@v1
+        with:
+          role-to-assume: ${{ secrets.PROD_DEPLOY_ROLE }}
+          aws-region: ${{ secrets.PROD_DEPLOY_REGION }}
+      - run: aws s3 sync ./out s3://kennethrebecca.com
