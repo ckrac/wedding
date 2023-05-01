@@ -43,7 +43,7 @@ const Header = () => {
 			</button>
 
 			<div className={styles['header__wedding-info']}>
-				<h5>August 5, 2023</h5>
+				<h5>September 23, 2023</h5>
 				<h5>Toronto, ON</h5>
 			</div>
 
