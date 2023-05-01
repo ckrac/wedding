@@ -11,8 +11,7 @@ const friends = [
 	{
 		name: 'Kim',
 		role: 'GROOMSMAN',
-		image:
-			'https://a1cf74336522e87f135f-2f21ace9a6cf0052456644b80fa06d4f.ssl.cf2.rackcdn.com/images/characters/large/800/Tyrion-Lannister.Game-of-Thrones.webp',
+		image: '/goku.jpeg',
 	},
 	{
 		name: 'Jady',
