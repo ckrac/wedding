@@ -27,6 +27,9 @@ jobs:
         run: yarn components-v1 --component=serverless-next config credentials --provider aws --key ${{ secrets.AWS_ACCESS_KEY_ID }} --secret ${{ secrets.AWS_SECRET_ACCESS_KEY }}
       - name: Deploy to AWS
         run: yarn components-v1
+        env:
+          AWS_REGION: ${{ secrets.PROD_DEPLOY_REGION }}
+          DISTRIBUTION: ${{ secrets.AWS_DISTRIBUTION }}
   invalidate-distribution-cache:
     runs-on: ubuntu-latest
     environment: Production

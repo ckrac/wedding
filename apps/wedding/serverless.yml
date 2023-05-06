@@ -2,7 +2,7 @@ myNextApplication:
   component: '@sls-next/serverless-component@latest'
   inputs:
     cloudfront:
-      distributionId: ${secrets.AWS_DISTRIBUTION}
+      distributionId: ${env.DISTRIBUTION}
     bucketName: 'kennethrebecca.com'
-    bucketRegion: ${secrets.PROD_DEPLOY_REGION}
+    bucketRegion: ${env.AWS_REGION}
     build: true
