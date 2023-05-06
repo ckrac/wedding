@@ -3,6 +3,5 @@ myNextApplication:
   inputs:
     cloudfront:
       distributionId: ${env.DISTRIBUTION}
-    bucketName: 'kennethrebecca.com'
     bucketRegion: ${env.AWS_REGION}
     build: true
