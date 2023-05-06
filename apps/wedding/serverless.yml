@@ -5,3 +5,4 @@ myNextApplication:
       distributionId: ${env.DISTRIBUTION}
     bucketRegion: ${env.AWS_REGION}
     build: true
+    build.useV2Handler: true

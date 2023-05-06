@@ -6,7 +6,7 @@ const withTM = require('next-transpile-modules')([])
 const nextConfig = {
 	reactStrictMode: true,
 	swcMinify: true,
-	trailingSlash: false,
+	trailingSlash: true,
 }
 
 module.exports = withTM(nextConfig)
