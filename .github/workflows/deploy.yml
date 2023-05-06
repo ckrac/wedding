@@ -18,15 +18,16 @@ jobs:
           node-version: 16
       - run: npm install -g yarn
       - run: yarn install --frozen-lockfile
+      - run: yarn global add @serverless/cli
       - uses: aws-actions/configure-aws-credentials@v2
         with:
           aws-access-key-id: ${{ secrets.AWS_ACCESS_KEY_ID }}
           aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
           aws-region: ${{ secrets.PROD_DEPLOY_REGION }}
       - name: Serverless AWS authentication
-        run: npx serverless --component=serverless-next config credentials --provider aws --key ${{ secrets.AWS_ACCESS_KEY_ID }} --secret ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+        run: yarn serverless --component=serverless-next config credentials --provider aws --key ${{ secrets.AWS_ACCESS_KEY_ID }} --secret ${{ secrets.AWS_SECRET_ACCESS_KEY }}
       - name: Deploy to AWS
-        run: npx serverless
+        run: yarn serverless
   invalidate-distribution-cache:
     runs-on: ubuntu-latest
     environment: Production
