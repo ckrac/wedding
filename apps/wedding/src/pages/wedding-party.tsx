@@ -11,7 +11,7 @@ const friends = [
 	{
 		name: 'Kim',
 		role: 'GROOMSMAN',
-		image: '/goku.jpeg',
+		image: '/kim.jpeg',
 	},
 	{
 		name: 'Jady',
